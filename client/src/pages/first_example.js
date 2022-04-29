@@ -1,5 +1,5 @@
-import {useState} from "react";
-import {Button, Stack, TextField} from "@mui/material";
+import {useEffect, useState} from "react";
+import {Button, Chip, Stack, TextField} from "@mui/material";
 
 
 async function send_data(data) {
@@ -16,6 +16,7 @@ async function send_data(data) {
 
 export default function SimpleForm() {
     const [button_value, set_button_value] = useState("");
+    const [connected, set_conn] = useState(false);
 
     const handle_click = (e) => {
         e.preventDefault();
@@ -27,10 +28,19 @@ export default function SimpleForm() {
 
     const handle_change = e => set_button_value(e.target.value.trim());
 
+    useEffect(() => {
+        send_data({})
+            .then(()=>set_conn(true))
+            .catch(()=>set_conn(false));
+    }, [connected]);
+
     return (
         <Stack spacing="10px" alignItems="center" justifyContent="center" height="100vh">
+            <Chip label={connected?"Connected":"Not connected"}
+                  color={connected?"success":"error"}
+                  variant="outlined" sx={{marginBottom: "25px"}}/>
             <TextField label="Enter something" variant="outlined" onChange={handle_change} value={button_value}/>
-            <Button variant="outlined" onClick={handle_click}>Send</Button>
+            <Button variant={connected?"outlined":"disabled"} onClick={handle_click}>Send</Button>
         </Stack>
     );
 }
