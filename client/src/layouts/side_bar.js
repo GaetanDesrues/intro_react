@@ -7,8 +7,7 @@ import ListItemText from '@mui/material/ListItemText';
 import MenuIcon from '@mui/icons-material/Menu';
 import {useState} from "react";
 import {Divider, Link, ListItemButton} from "@mui/material";
-import CottageIcon from '@mui/icons-material/Cottage';
-import LooksOneIcon from '@mui/icons-material/LooksOne';
+import {CottageOutlined, LooksOneOutlined, LooksTwoOutlined} from "@mui/icons-material";
 
 export default function TemporaryDrawer() {
 	const [left_drawer, set_ldraw] = useState(false);
@@ -24,15 +23,20 @@ export default function TemporaryDrawer() {
 		>
 			<List>
 				<ListItemButton component={Link} href="/">
-					<ListItemIcon><CottageIcon/></ListItemIcon>
+					<ListItemIcon><CottageOutlined/></ListItemIcon>
 					<ListItemText primary="Home"/>
 				</ListItemButton>
 
 				<Divider />
 
 				<ListItemButton component={Link} href="/post_ex">
-					<ListItemIcon><LooksOneIcon/></ListItemIcon>
+					<ListItemIcon><LooksOneOutlined/></ListItemIcon>
 					<ListItemText primary="Http POST"/>
+				</ListItemButton>
+
+				<ListItemButton component={Link} href="/sec_ex">
+					<ListItemIcon><LooksTwoOutlined/></ListItemIcon>
+					<ListItemText primary="Cards"/>
 				</ListItemButton>
 			</List>
 		</Box>

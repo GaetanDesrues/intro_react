@@ -3,6 +3,7 @@ import SimpleForm from './pages/first_example';
 import Page404 from "./pages/404";
 import Layout from "./layouts/main_layout";
 import HomePage from "./pages/home";
+import SecondEx from "./pages/second_example";
 
 
 
@@ -14,6 +15,7 @@ export default function Router() {
       children: [
         { path: '', element: <HomePage /> },
         { path: 'post_ex', element: <SimpleForm /> },
+        { path: 'sec_ex', element: <SecondEx /> },
         { path: '404', element: <Page404 /> },
         { path: '*', element: <Navigate to="/404" /> },
       ],
