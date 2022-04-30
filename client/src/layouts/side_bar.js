@@ -7,8 +7,8 @@ import ListItemText from '@mui/material/ListItemText';
 import MenuIcon from '@mui/icons-material/Menu';
 import {useState} from "react";
 import {Divider, Link, ListItemButton} from "@mui/material";
-import {CottageOutlined, LooksOneOutlined, LooksTwoOutlined} from "@mui/icons-material";
-
+import {CottageOutlined, LooksOneOutlined, LooksTwoOutlined, Looks3Outlined} from "@mui/icons-material";
+import ArticleOutlinedIcon from '@mui/icons-material/ArticleOutlined';
 export default function TemporaryDrawer() {
 	const [left_drawer, set_ldraw] = useState(false);
 	const toggleDrawer = (open) => () => {
@@ -37,6 +37,18 @@ export default function TemporaryDrawer() {
 				<ListItemButton component={Link} href="/sec_ex">
 					<ListItemIcon><LooksTwoOutlined/></ListItemIcon>
 					<ListItemText primary="Cards"/>
+				</ListItemButton>
+
+				<ListItemButton component={Link} href="/md_ex">
+					<ListItemIcon><Looks3Outlined/></ListItemIcon>
+					<ListItemText primary="Markdown editor"/>
+				</ListItemButton>
+
+				<Divider />
+
+				<ListItemButton component={Link} href="/md">
+					<ListItemIcon><ArticleOutlinedIcon/></ListItemIcon>
+					<ListItemText primary="Markdown"/>
 				</ListItemButton>
 			</List>
 		</Box>
